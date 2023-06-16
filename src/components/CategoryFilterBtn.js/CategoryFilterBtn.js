@@ -2,6 +2,7 @@
 
 import React, { useContext, useState } from 'react';
 import { PropTypes } from 'prop-types';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import MyContext from '../../context/MyContext';
 import All from '../../images/All.png';
 import Alld from '../../images/Alld.png';
@@ -15,7 +16,6 @@ import Goat from '../../images/Goat.png';
 import OrdinaryDrinks from '../../images/OrnidaryDrinks.png';
 import OtherUnknown from '../../images/OtherUnknown.png';
 import Shake from '../../images/Shake.png';
-import { Container, Nav, Navbar } from 'react-bootstrap';
 
 function CategoryFilterBtn({ type }) {
   const {
@@ -31,21 +31,37 @@ function CategoryFilterBtn({ type }) {
 
   const getIconByCategoryMeals = (category) => {
     switch (category) {
-      case 'Beef':
-        return Beef;
-      case 'Breakfast':
-        return Breakfast;
-      case 'Chicken':
-        return Chicken;
-      case 'Dessert':
-        return Dessert;
-      case 'Goat':
-        return Goat;
-      default:
-        return null;
+    case 'Beef':
+      return Beef;
+    case 'Breakfast':
+      return Breakfast;
+    case 'Chicken':
+      return Chicken;
+    case 'Dessert':
+      return Dessert;
+    case 'Goat':
+      return Goat;
+    default:
+      return null;
     }
   };
 
+  const getIconByCategoryDrinks = (category) => {
+    switch (category) {
+    case 'Ordinary Drink':
+      return OrdinaryDrinks;
+    case 'Cocktail':
+      return Cocktail;
+    case 'Shake':
+      return Shake;
+    case 'Other / Unknown':
+      return OtherUnknown;
+    case 'Cocoa':
+      return Cocoa;
+    default:
+      return null;
+    }
+  };
   // na rota /meals, ao clicar no botão ALL, traz as 12 receitas sem filtro ('limpa filtros')
   // Carrega todas as receitas de meals sem filtro
   const btnAllFood = async () => {
@@ -108,26 +124,30 @@ function CategoryFilterBtn({ type }) {
       className={ selectedFoodCategory === strCategory ? 'active' : '' }
     >
       <img
-        width="70"
+        width="60"
         src={ getIconByCategoryMeals(strCategory) }
         alt={ strCategory }
       />
-      {/* { strCategory } */}
+      {/* { strCategory } */ }
     </Nav.Link>
   ));
 
   // ao entrar na rota /drinks, página carrega 5 botões para pesquisa por categoria
   const btnDrinks = () => categoryDrinksData.map(({ strCategory }) => (
-    <div key={ strCategory }>
-      <button
-        data-testid={ `${strCategory}-category-filter` }
-        onClick={ () => handleCategoryClickDrink(strCategory) }
-        // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
-        className={ selectedDrinkCategory === strCategory ? 'active' : '' }
-      >
-        { strCategory }
-      </button>
-    </div>
+    <Nav.Link
+      key={ strCategory }
+      data-testid={ `${strCategory}-category-filter` }
+      onClick={ () => handleCategoryClickDrink(strCategory) }
+      // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
+      className={ selectedDrinkCategory === strCategory ? 'active' : '' }
+    >
+      <img
+        width="60"
+        src={ getIconByCategoryDrinks(strCategory) }
+        alt={ strCategory }
+      />
+      {/* { strCategory } */}
+    </Nav.Link>
   ));
 
   // Trata o clique no botão "All" ele tem que ser seoaradi das categorias
@@ -149,11 +169,11 @@ function CategoryFilterBtn({ type }) {
             className={ selectedFoodCategory === '' ? 'active' : '' }
           >
             <img
-              width="70"
+              width="60"
               src={ All }
               alt="button all"
             />
-            {/* All */}
+            {/* All */ }
           </Nav.Link>
           { btnMeals() }
         </Container>
@@ -162,16 +182,23 @@ function CategoryFilterBtn({ type }) {
   }
 
   return (
-    <>
-      <button
-        data-testid="All-category-filter"
-        onClick={ handleAllClick }
-        className={ selectedDrinkCategory === '' ? 'active' : '' }
-      >
-        {/* All */}
-      </button>
-      { btnDrinks() }
-    </>
+    <Navbar>
+      <Container fluid>
+        <Nav.Link
+          data-testid="All-category-filter"
+          onClick={ handleAllClick }
+          className={ selectedDrinkCategory === '' ? 'active' : '' }
+        >
+          <img
+            width="60"
+            src={ Alld }
+            alt="button all"
+          />
+          {/* All */}
+        </Nav.Link>
+        { btnDrinks() }
+      </Container>
+    </Navbar>
   );
 }
 

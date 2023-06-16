@@ -10,7 +10,7 @@ function Recipes({ type }) {
   const { foodData, drinkData } = useContext(MyContext);
   // ao entrar na rota /meals, carrega as 12 primeiras receitas OU carrega as 12 primeiras da categoria OU carrega pesquisa do SearchBar
   const showFood = () => (
-    <Row xs={ 2 } md={ 2 } className="g-4">
+    <Row xs={ 2 } className="mx-auto g-4">
       { foodData.map((element, index) => {
         const idDaReceita = element.idMeal;
         const { strMealThumb, strMeal } = element;
@@ -23,7 +23,7 @@ function Recipes({ type }) {
           >
             <Col key={ idDaReceita }>
               <Card
-                style={ { width: '16rem' } }
+                style={ { width: '14rem' } }
                 data-testid={ `${index}-recipe-card` }
                 key={ strMealThumb }
               >
