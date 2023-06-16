@@ -128,7 +128,7 @@ function CategoryFilterBtn({ type }) {
           src={ getIconByCategoryMeals(strCategory) }
           alt={ strCategory }
         />
-        <Figure.Caption>{ strCategory }</Figure.Caption>
+        <Figure.Caption className="text-center">{ strCategory }</Figure.Caption>
       </Nav.Link>
     </Navbar>
   ));
@@ -147,7 +147,7 @@ function CategoryFilterBtn({ type }) {
           src={ getIconByCategoryDrinks(strCategory) }
           alt={ strCategory }
         />
-        <Figure.Caption>{ strCategory }</Figure.Caption>
+        <Figure.Caption className="text-center">{ strCategory }</Figure.Caption>
       </Nav.Link>
     </Navbar>
   ));
@@ -175,7 +175,7 @@ function CategoryFilterBtn({ type }) {
               src={ All }
               alt="button all"
             />
-            <Figure.Caption>All</Figure.Caption>
+            <Figure.Caption className="text-center">All</Figure.Caption>
           </Nav.Link>
           { btnMeals() }
         </Container>
@@ -196,7 +196,7 @@ function CategoryFilterBtn({ type }) {
             src={ Alld }
             alt="button all"
           />
-          <Figure.Caption>All</Figure.Caption>
+          <Figure.Caption className="text-center">All</Figure.Caption>
         </Nav.Link>
         { btnDrinks() }
       </Container>
