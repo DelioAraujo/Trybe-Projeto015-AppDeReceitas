@@ -3,6 +3,18 @@
 import React, { useContext, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import MyContext from '../../context/MyContext';
+import All from '../../images/All.png';
+import Alld from '../../images/Alld.png';
+import Beef from '../../images/Beef.png';
+import Breakfast from '../../images/Breakfast.png';
+import Chicken from '../../images/Chicken.png';
+import Cocktail from '../../images/Cocktail.png';
+import Cocoa from '../../images/Cocoa.png';
+import Dessert from '../../images/Dessert.png';
+import Goat from '../../images/Goat.png';
+import OrdinaryDrinks from '../../images/OrnidaryDrinks.png';
+import OtherUnknown from '../../images/OtherUnknown.png';
+import Shake from '../../images/Shake.png';
 
 function CategoryFilterBtn({ type }) {
   const {
@@ -15,6 +27,23 @@ function CategoryFilterBtn({ type }) {
   } = useContext(MyContext);
   const [selectedFoodCategory, setSelectedFoodCategory] = useState('');
   const [selectedDrinkCategory, setSelectedDrinkCategory] = useState('');
+
+  const getIconByCategoryMeals = (category) => {
+    switch (category) {
+      case 'Beef':
+        return Beef;
+      case 'Breakfast':
+        return Breakfast;
+      case 'Chicken':
+        return Chicken;
+      case 'Dessert':
+        return Dessert;
+      case 'Goat':
+        return Goat;
+      default:
+        return null;
+    }
+  };
 
   // na rota /meals, ao clicar no botão ALL, traz as 12 receitas sem filtro ('limpa filtros')
   // Carrega todas as receitas de meals sem filtro
@@ -77,6 +106,7 @@ function CategoryFilterBtn({ type }) {
         // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
         className={ selectedFoodCategory === strCategory ? 'active' : '' }
       >
+        <img src={ () => getIconByCategoryMeals(category) } alt={ strCategory } />
         {strCategory}
       </button>
     </div>
