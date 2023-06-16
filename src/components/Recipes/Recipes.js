@@ -33,6 +33,7 @@ function Recipes({ type }) {
                 />
                 <Card.Body>
                   <Card.Title
+                    className="text-warning"
                     data-testid={ `${index}-card-name` }
                   >
                     { strMeal }
@@ -68,6 +69,7 @@ function Recipes({ type }) {
                 />
                 <Card.Body>
                   <Card.Title
+                    className="text-warning"
                     data-testid={ `${index}-card-name` }
                   >
                     { strDrink }
