@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import drinkIcon from '../../images/drinkIcon.svg';
 import mealIcon from '../../images/mealIcon.svg';
 // import './Footer.css';
-import { Container, Nav, Navbar } from 'react-bootstrap';
 
 function Footer() {
   const history = useHistory();
@@ -29,7 +29,7 @@ function Footer() {
   );
 
   const showMealsBtn = () => (
-    <Nav.Link bg="light"
+    <Nav.Link
       onClick={ goToMeals }
     >
       <img
