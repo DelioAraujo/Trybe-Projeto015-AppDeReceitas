@@ -30,18 +30,18 @@ function CategoryFilterBtn({ type }) {
 
   const getIconByCategoryMeals = (category) => {
     switch (category) {
-      case 'Beef':
-        return Beef;
-      case 'Breakfast':
-        return Breakfast;
-      case 'Chicken':
-        return Chicken;
-      case 'Dessert':
-        return Dessert;
-      case 'Goat':
-        return Goat;
-      default:
-        return null;
+    case 'Beef':
+      return Beef;
+    case 'Breakfast':
+      return Breakfast;
+    case 'Chicken':
+      return Chicken;
+    case 'Dessert':
+      return Dessert;
+    case 'Goat':
+      return Goat;
+    default:
+      return null;
     }
   };
 
@@ -107,7 +107,7 @@ function CategoryFilterBtn({ type }) {
         className={ selectedFoodCategory === strCategory ? 'active' : '' }
       >
         <img src={ () => getIconByCategoryMeals(category) } alt={ strCategory } />
-        {strCategory}
+        { strCategory }
       </button>
     </div>
   ));
@@ -121,7 +121,7 @@ function CategoryFilterBtn({ type }) {
         // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
         className={ selectedDrinkCategory === strCategory ? 'active' : '' }
       >
-        {strCategory}
+        { strCategory }
       </button>
     </div>
   ));
@@ -145,7 +145,7 @@ function CategoryFilterBtn({ type }) {
         >
           All
         </button>
-        {btnMeals()}
+        { btnMeals() }
       </>
     );
   }
@@ -159,7 +159,7 @@ function CategoryFilterBtn({ type }) {
       >
         All
       </button>
-      {btnDrinks()}
+      { btnDrinks() }
     </>
   );
 }
