@@ -15,6 +15,7 @@ import Goat from '../../images/Goat.png';
 import OrdinaryDrinks from '../../images/OrnidaryDrinks.png';
 import OtherUnknown from '../../images/OtherUnknown.png';
 import Shake from '../../images/Shake.png';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 function CategoryFilterBtn({ type }) {
   const {
@@ -30,18 +31,18 @@ function CategoryFilterBtn({ type }) {
 
   const getIconByCategoryMeals = (category) => {
     switch (category) {
-    case 'Beef':
-      return Beef;
-    case 'Breakfast':
-      return Breakfast;
-    case 'Chicken':
-      return Chicken;
-    case 'Dessert':
-      return Dessert;
-    case 'Goat':
-      return Goat;
-    default:
-      return null;
+      case 'Beef':
+        return Beef;
+      case 'Breakfast':
+        return Breakfast;
+      case 'Chicken':
+        return Chicken;
+      case 'Dessert':
+        return Dessert;
+      case 'Goat':
+        return Goat;
+      default:
+        return null;
     }
   };
 
@@ -99,17 +100,20 @@ function CategoryFilterBtn({ type }) {
 
   // ao entrar na rota /meals, página carrega 5 botões para pesquisa por categoria
   const btnMeals = () => categoryFoodData.map(({ strCategory }) => (
-    <div key={ strCategory }>
-      <button
-        data-testid={ `${strCategory}-category-filter` }
-        onClick={ () => handleCategoryClickFood(strCategory) }
-        // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
-        className={ selectedFoodCategory === strCategory ? 'active' : '' }
-      >
-        <img src={ () => getIconByCategoryMeals(category) } alt={ strCategory } />
-        { strCategory }
-      </button>
-    </div>
+    <Nav.Link
+      key={ strCategory }
+      data-testid={ `${strCategory}-category-filter` }
+      onClick={ () => handleCategoryClickFood(strCategory) }
+      // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
+      className={ selectedFoodCategory === strCategory ? 'active' : '' }
+    >
+      <img
+        width="70"
+        src={ getIconByCategoryMeals(strCategory) }
+        alt={ strCategory }
+      />
+      {/* { strCategory } */}
+    </Nav.Link>
   ));
 
   // ao entrar na rota /drinks, página carrega 5 botões para pesquisa por categoria
@@ -137,16 +141,23 @@ function CategoryFilterBtn({ type }) {
 
   if (type === 'meals') {
     return (
-      <>
-        <button
-          data-testid="All-category-filter"
-          onClick={ handleAllClick }
-          className={ selectedFoodCategory === '' ? 'active' : '' }
-        >
-          All
-        </button>
-        { btnMeals() }
-      </>
+      <Navbar>
+        <Container fluid>
+          <Nav.Link
+            data-testid="All-category-filter"
+            onClick={ handleAllClick }
+            className={ selectedFoodCategory === '' ? 'active' : '' }
+          >
+            <img
+              width="70"
+              src={ All }
+              alt="button all"
+            />
+            {/* All */}
+          </Nav.Link>
+          { btnMeals() }
+        </Container>
+      </Navbar>
     );
   }
 
@@ -157,7 +168,7 @@ function CategoryFilterBtn({ type }) {
         onClick={ handleAllClick }
         className={ selectedDrinkCategory === '' ? 'active' : '' }
       >
-        All
+        {/* All */}
       </button>
       { btnDrinks() }
     </>

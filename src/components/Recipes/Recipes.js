@@ -17,7 +17,7 @@ function Recipes({ type }) {
 
         return (
           <Link
-            class="text-sm-center text-decoration-none"
+            className="text-sm-center text-decoration-none"
             to={ `/meals/${idDaReceita}` }
             key={ strMealThumb }
           >
