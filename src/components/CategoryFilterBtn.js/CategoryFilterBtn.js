@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from 'react';
 import { PropTypes } from 'prop-types';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Figure, Nav, Navbar } from 'react-bootstrap';
 import MyContext from '../../context/MyContext';
 import All from '../../images/All.png';
 import Alld from '../../images/Alld.png';
@@ -116,38 +116,40 @@ function CategoryFilterBtn({ type }) {
 
   // ao entrar na rota /meals, página carrega 5 botões para pesquisa por categoria
   const btnMeals = () => categoryFoodData.map(({ strCategory }) => (
-    <Nav.Link
-      key={ strCategory }
-      data-testid={ `${strCategory}-category-filter` }
-      onClick={ () => handleCategoryClickFood(strCategory) }
-      // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
-      className={ selectedFoodCategory === strCategory ? 'active' : '' }
-    >
-      <img
-        width="60"
-        src={ getIconByCategoryMeals(strCategory) }
-        alt={ strCategory }
-      />
-      {/* { strCategory } */ }
-    </Nav.Link>
+    <Navbar key={ strCategory }>
+      <Nav.Link
+        data-testid={ `${strCategory}-category-filter` }
+        onClick={ () => handleCategoryClickFood(strCategory) }
+        // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
+        className={ selectedFoodCategory === strCategory ? 'active' : '' }
+      >
+        <Figure.Image
+          width="60"
+          src={ getIconByCategoryMeals(strCategory) }
+          alt={ strCategory }
+        />
+        <Figure.Caption>{ strCategory }</Figure.Caption>
+      </Nav.Link>
+    </Navbar>
   ));
 
   // ao entrar na rota /drinks, página carrega 5 botões para pesquisa por categoria
   const btnDrinks = () => categoryDrinksData.map(({ strCategory }) => (
-    <Nav.Link
-      key={ strCategory }
-      data-testid={ `${strCategory}-category-filter` }
-      onClick={ () => handleCategoryClickDrink(strCategory) }
-      // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
-      className={ selectedDrinkCategory === strCategory ? 'active' : '' }
-    >
-      <img
-        width="60"
-        src={ getIconByCategoryDrinks(strCategory) }
-        alt={ strCategory }
-      />
-      {/* { strCategory } */}
-    </Nav.Link>
+    <Navbar key={ strCategory }>
+      <Nav.Link
+        data-testid={ `${strCategory}-category-filter` }
+        onClick={ () => handleCategoryClickDrink(strCategory) }
+        // se a categoria selecionada for igual a categoria do botão, adiciona a classe active
+        className={ selectedDrinkCategory === strCategory ? 'active' : '' }
+      >
+        <Figure.Image
+          width="60"
+          src={ getIconByCategoryDrinks(strCategory) }
+          alt={ strCategory }
+        />
+        <Figure.Caption>{ strCategory }</Figure.Caption>
+      </Nav.Link>
+    </Navbar>
   ));
 
   // Trata o clique no botão "All" ele tem que ser seoaradi das categorias
@@ -168,12 +170,12 @@ function CategoryFilterBtn({ type }) {
             onClick={ handleAllClick }
             className={ selectedFoodCategory === '' ? 'active' : '' }
           >
-            <img
-              width="60"
+            <Figure.Image
+              width="70"
               src={ All }
               alt="button all"
             />
-            {/* All */ }
+            <Figure.Caption>All</Figure.Caption>
           </Nav.Link>
           { btnMeals() }
         </Container>
@@ -189,12 +191,12 @@ function CategoryFilterBtn({ type }) {
           onClick={ handleAllClick }
           className={ selectedDrinkCategory === '' ? 'active' : '' }
         >
-          <img
+          <Figure.Image
             width="60"
             src={ Alld }
             alt="button all"
           />
-          {/* All */}
+          <Figure.Caption>All</Figure.Caption>
         </Nav.Link>
         { btnDrinks() }
       </Container>

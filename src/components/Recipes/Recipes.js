@@ -14,7 +14,6 @@ function Recipes({ type }) {
       { foodData.map((element, index) => {
         const idDaReceita = element.idMeal;
         const { strMealThumb, strMeal } = element;
-
         return (
           <Link
             className="text-sm-center text-decoration-none"
@@ -23,7 +22,6 @@ function Recipes({ type }) {
           >
             <Col key={ idDaReceita }>
               <Card
-                style={ { width: '14rem' } }
                 data-testid={ `${index}-recipe-card` }
                 key={ strMealThumb }
               >
@@ -49,25 +47,38 @@ function Recipes({ type }) {
   );
 
   // ao entrar na rota /drinks, carrega ss 12 primeiras bebidas OU carrega os 12 primeiros da categoria escolhida OU carrega pesquisa do SearchBar
-  const showDrinks = () => drinkData.map(
-    ({ strDrinkThumb, strDrink, idDrink }, index) => (
-      <Link
-        to={ `/drinks/${idDrink}` }
-        key={ strDrinkThumb }
-      >
-        <div
-          data-testid={ `${index}-recipe-card` }
-          key={ strDrinkThumb }
-        >
-          <img
-            src={ strDrinkThumb }
-            alt={ strDrink }
-            data-testid={ `${index}-card-img` }
-          />
-          <p data-testid={ `${index}-card-name` }>{ strDrink }</p>
-        </div>
-      </Link>
-    ),
+  const showDrinks = () => (
+    <Row xs={ 2 } className="mx-auto g-4">
+      { drinkData.map(
+        ({ strDrinkThumb, strDrink, idDrink }, index) => (
+          <Link
+            className="text-sm-center text-decoration-none"
+            to={ `/drinks/${idDrink}` }
+            key={ strDrinkThumb }
+          >
+            <Col key={ idDrink }>
+              <Card
+                data-testid={ `${index}-recipe-card` }
+                key={ strDrinkThumb }
+              >
+                <Card.Img
+                  src={ strDrinkThumb }
+                  alt={ strDrink }
+                  data-testid={ `${index}-card-img` }
+                />
+                <Card.Body>
+                  <Card.Title
+                    data-testid={ `${index}-card-name` }
+                  >
+                    { strDrink }
+                  </Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Link>
+        ),
+      )}
+    </Row>
   );
 
   if (type === 'meals') {
