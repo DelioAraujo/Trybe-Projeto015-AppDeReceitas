@@ -43,9 +43,9 @@ function Footer() {
   return (
     <Navbar data-testid="footer" fixed="bottom" bg="warning">
       <Container>
-      { showDrinksBtn() }
-      { showMealsBtn() }
-    </Container>
+        { showDrinksBtn() }
+        { showMealsBtn() }
+      </Container>
     </Navbar>
   );
 }
