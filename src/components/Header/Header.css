@@ -1,0 +1,65 @@
+/* src/components/Header/Header.css */
+
+/* SearchBar.css */
+
+
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #E8D581;
+    padding: 10px;
+  }
+
+  h1[data-testid="page-title"] {
+    text-align: center;
+/*     width: 100%; */
+    padding-left: 20px;
+
+    font-size: 60px; 
+
+  }
+
+  
+  
+  .search-container {
+    display: flex;
+    align-items: left;
+    margin-left: 10px;
+    font-size: 8 px;
+  }
+  
+
+img[data-testid="search-top-btn"]{
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    /* max-width: 80px;  Defina o tamanho máximo de largura desejado
+       max-height: 80px;  Defina o tamanho máximo de altura desejado */
+    cursor: pointer;
+  }
+
+  img[data-testid="profile-top-btn"] {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    /* max-width: 80px;  Defina o tamanho máximo de largura desejado
+       max-height: 80px;  Defina o tamanho máximo de altura desejado */
+    cursor: pointer;
+  }
+
+
+  
+  
+  /* Definir tamanho escalável usando vw */
+  @media screen and (min-width: 360px) {
+        [data-testid="search-top-btn"] [data-testid="search-top-btn"]{
+      width: 5vw;
+      height: 5vw;
+      max-width: 8vw; /* Defina o tamanho máximo de largura escalável */
+      max-height: 8vw; /* Defina o tamanho máximo de altura escalável */
+    }
+  }
+
+
+  
