@@ -13,7 +13,8 @@ header {
 
   h1[data-testid="page-title"] {
     text-align: center;
-/*     width: 100%; */
+/*     width: 100%; x*/
+
     padding-left: 20px;
 
     font-size: 60px; 
