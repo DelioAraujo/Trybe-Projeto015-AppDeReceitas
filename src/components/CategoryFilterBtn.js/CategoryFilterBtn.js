@@ -124,7 +124,7 @@ function CategoryFilterBtn({ type }) {
         className={ selectedFoodCategory === strCategory ? 'active' : '' }
       >
         <Figure.Image
-          width="60"
+          width="40"
           src={ getIconByCategoryMeals(strCategory) }
           alt={ strCategory }
         />
@@ -143,7 +143,7 @@ function CategoryFilterBtn({ type }) {
         className={ selectedDrinkCategory === strCategory ? 'active' : '' }
       >
         <Figure.Image
-          width="60"
+          width="40"
           src={ getIconByCategoryDrinks(strCategory) }
           alt={ strCategory }
         />
@@ -171,7 +171,7 @@ function CategoryFilterBtn({ type }) {
             className={ selectedFoodCategory === '' ? 'active' : '' }
           >
             <Figure.Image
-              width="70"
+              width="40"
               src={ All }
               alt="button all"
             />
@@ -192,7 +192,7 @@ function CategoryFilterBtn({ type }) {
           className={ selectedDrinkCategory === '' ? 'active' : '' }
         >
           <Figure.Image
-            width="60"
+            width="40"
             src={ Alld }
             alt="button all"
           />

@@ -1,9 +1,11 @@
 // src/components/Header/Header.jsx
 
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import { Container, NavItem } from 'react-bootstrap';
 import iconProfile from '../../images/iconProfile.png';
-import iconSeach from '../../images/iconSearch.png';
+import iconSearch from '../../images/iconSearch.png';
 import SearchBar from '../SearchBar/SearchBar';
 import './Header.css';
 
@@ -14,9 +16,9 @@ function Header() {
   const getPageTitle = () => {
     switch (location.pathname) {
     case '/meals':
-      return 'Meals';
+      return 'MEALS';
     case '/drinks':
-      return 'Drinks';
+      return 'DRINKS';
     case '/profile':
       return 'Profile';
     case '/done-recipes':
@@ -50,21 +52,27 @@ function Header() {
   };
 
   return (
-    <header>
-      <Link to="/profile">
-        <img src={ iconProfile } alt="Profile" data-testid="profile-top-btn" />
-      </Link>
-      <div className="search-container">
-        <img
-          src={ iconSeach }
-          alt="icon-pesquisa"
-          data-testid="search-top-btn"
-          type="button"
-          onClick={ handleSearchClick }
-        />
-        {renderContent()}
-      </div>
-    </header>
+    <Navbar bg="warning">
+      <Container>
+        <NavLink to="/profile">
+          <img src={ iconProfile } alt="Profile" data-testid="profile-top-btn" />
+        </NavLink>
+        <div className="search-container">
+          <NavItem>
+            <img
+              src={ iconSearch }
+              alt="icon-pesquisa"
+              data-testid="search-top-btn"
+              type="button"
+              onClick={ handleSearchClick }
+            />
+          </NavItem>
+        </div>
+        <Navbar.Text className="white-text">
+          {renderContent()}
+        </Navbar.Text>
+      </Container>
+    </Navbar>
   );
 }
 
