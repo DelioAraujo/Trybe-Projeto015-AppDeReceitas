@@ -1,10 +1,11 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Habilidades utilizadas nesse projeto:
+
+Esse foi um projeto em grupo. Fiquei responsável por fazer a parte "Receita sendo feita" e após terminar a minha parte fiquei na parte de ajudar os parceiros a resolverem problemas durante o desenvolvimento, fazendo pair programming.
+
+- Redux para gerenciar estado
+- biblioteca React-Redux
+- Context API do React para gerenciar estado
+- React Hook useState
+- React Hook useContext
+- React Hook useEffect
+- Hooks customizados
